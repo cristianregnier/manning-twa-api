@@ -55,3 +55,7 @@ connector:
 cache:
   maximumSize: 1000
   duration: 60
+
+redis:
+  host: localhost
+  port: 6379
