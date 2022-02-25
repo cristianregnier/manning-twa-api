@@ -3,14 +3,14 @@ package com.twa.flights.api.clusters.configuration.settings;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
-@ConfigurationProperties(prefix = "redis")
+@ConfigurationProperties(prefix = "cache")
 @ConstructorBinding
-public class RedisSettings {
+public class CacheSettings {
 
     private final String host;
     private final int port;
 
-    public RedisSettings(String host, int port) {
+    public CacheSettings(String host, int port) {
         this.host = host;
         this.port = port;
     }

@@ -169,14 +169,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.github.ben-manes.caffeine</groupId>
-			<artifactId>caffeine</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>com.google.errorprone</groupId>
-					<artifactId>error_prone_annotations</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>4.1.0</version>
 		</dependency>
 
 		<!-- TWA -->
