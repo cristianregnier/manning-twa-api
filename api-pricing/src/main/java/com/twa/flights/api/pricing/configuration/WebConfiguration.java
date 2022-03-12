@@ -36,6 +36,7 @@ public class WebConfiguration implements WebMvcConfigurer {
         List<HttpMessageConverter<?>> messageConverters = exceptionHandlerExceptionResolver.getMessageConverters();
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         messageConverters.add(new MappingJackson2HttpMessageConverter(objectMapper));
     }
 
