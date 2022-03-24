@@ -80,3 +80,11 @@ services:
     container_name: api-clusters-remote-cache
     ports:
       - 5079:6379
+
+  zookeeper:
+    image: bitnami/zookeeper:3-debian-10
+    restart: always
+    ports:
+      - 2181:2181
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
