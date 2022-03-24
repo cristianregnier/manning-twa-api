@@ -3,6 +3,7 @@ package com.twa.flights.api.clusters.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.twa.flights.api.clusters.helper.FlightIdGeneratorHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,13 +26,15 @@ public class ClustersService {
     private final ItinerariesSearchService itinerariesSearchService;
     private final PricingService pricingService;
     private final ClustersRepository repository;
+    private final FlightIdGeneratorHelper flightIdGeneratorHelper;
 
     @Autowired
     public ClustersService(ItinerariesSearchService itinerariesSearchService, PricingService pricingService,
-            ClustersRepository repository) {
+                           ClustersRepository repository, FlightIdGeneratorHelper flightIdGeneratorHelper) {
         this.itinerariesSearchService = itinerariesSearchService;
         this.pricingService = pricingService;
         this.repository = repository;
+        this.flightIdGeneratorHelper = flightIdGeneratorHelper;
     }
 
     public ClusterSearchDTO availability(ClustersAvailabilityRequestDTO request) {
@@ -40,7 +43,15 @@ public class ClustersService {
         ClusterSearchDTO response = null;
 
         if (StringUtils.isEmpty(request.getId())) { // New search
-            response = availabilityFromProviders(request);
+            // Create a Query Id based on the request to find previously executed query results
+            response = repository.get(flightIdGeneratorHelper.generate(request));
+
+            // If the query was not previously executed by other thread the results will be retrieved from provider services
+            if (response == null) {
+                response = availabilityFromProviders(request);
+            }
+
+            response.setItineraries(response.getItineraries().stream().limit(request.getAmount()).collect(Collectors.toList()));
         } else { // Pagination old search
             response = availabilityFromDatabase(request);
         }
