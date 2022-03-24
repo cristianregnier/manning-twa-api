@@ -57,3 +57,9 @@ cache:
 redis:
   host: localhost
   port: 5079
+
+zookeeper:
+  host: localhost:2181
+  maxRetries: 2
+  timeBetweenRetries: 100
+  connectionTimeout: 1000
