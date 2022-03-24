@@ -24,7 +24,7 @@ services:
      - 4070:4070
     restart: always
     links:
-      - api-clusters-db 
+      - api-clusters-db
 
   api-clusters-db:
     container_name: api-clusters-db
@@ -82,9 +82,7 @@ services:
       - 5079:6379
 
   zookeeper:
-    image: bitnami/zookeeper:3-debian-10
-    restart: always
+    build: ./zookeeper
+    container_name: zookeeper
     ports:
       - 2181:2181
-    environment:
-      ALLOW_ANONYMOUS_LOGIN: "yes"
