@@ -1,0 +1,770 @@
+{
+  "id": "TWA_f=BUE,MIA_t=MIA,BUE_d=2022-11-29,2022-12-03_a=1_c=1_i=1",
+  "pagination": {
+    "offset": 0,
+    "limit": 10,
+    "total": 18
+  },
+  "itineraries": [
+    {
+      "id": "007b384c-07fd-42c9-aa56-7d6337dba863",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 4,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 9,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 9.8,
+          "base": 185.58,
+          "quantity": 1,
+          "subtotal": 195.38,
+          "total": 234.456,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 2,
+            "amount": 39.076
+          }
+        },
+        "children": {
+          "tax": 189.31,
+          "base": 85.77,
+          "quantity": 1,
+          "subtotal": 275.08,
+          "total": 330.096,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 2,
+            "amount": 55.016
+          }
+        },
+        "infants": {
+          "tax": 78.59,
+          "base": 141.44,
+          "quantity": 1,
+          "subtotal": 220.03,
+          "total": 264.036,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 2,
+            "amount": 44.006
+          }
+        }
+      },
+      "provider": "BETA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "IB"
+    },
+    {
+      "id": "c01b6871-b6ce-4d2e-85af-7b5690434c2f",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 4,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 4,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 180.49,
+          "base": 136.68,
+          "quantity": 1,
+          "subtotal": 317.17,
+          "total": 348.887,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 1,
+            "amount": 31.717
+          }
+        },
+        "children": {
+          "tax": 38.52,
+          "base": 162.51,
+          "quantity": 1,
+          "subtotal": 201.03,
+          "total": 221.133,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 1,
+            "amount": 20.103
+          }
+        },
+        "infants": {
+          "tax": 88.46,
+          "base": 278.69,
+          "quantity": 1,
+          "subtotal": 367.15,
+          "total": 403.865,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 1,
+            "amount": 36.715
+          }
+        }
+      },
+      "provider": "BETA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "KL"
+    },
+    {
+      "id": "72357914-64a8-4e0a-a033-6ddc737d523d",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 4,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 8,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 72.79,
+          "base": 184.33,
+          "quantity": 1,
+          "subtotal": 257.12,
+          "total": 308.544,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 2,
+            "amount": 51.424
+          }
+        },
+        "children": {
+          "tax": 146.31,
+          "base": 283.59,
+          "quantity": 1,
+          "subtotal": 429.9,
+          "total": 515.88,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 2,
+            "amount": 85.98
+          }
+        },
+        "infants": {
+          "tax": 76.18,
+          "base": 487.9,
+          "quantity": 1,
+          "subtotal": 564.08,
+          "total": 676.896,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 2,
+            "amount": 112.816
+          }
+        }
+      },
+      "provider": "BETA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "AA"
+    },
+    {
+      "id": "ec90a620-76ba-467e-ba62-61a45a7135e8",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 4,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 8,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 179.51,
+          "base": 849.16,
+          "quantity": 1,
+          "subtotal": 1028.67,
+          "total": 1028.67,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 0,
+            "amount": 0
+          }
+        },
+        "children": {
+          "tax": 73.93,
+          "base": 106.59,
+          "quantity": 1,
+          "subtotal": 180.52,
+          "total": 180.52,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 0,
+            "amount": 0
+          }
+        },
+        "infants": {
+          "tax": 139.55,
+          "base": 294.14,
+          "quantity": 1,
+          "subtotal": 433.69,
+          "total": 433.69,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 0,
+            "amount": 0
+          }
+        }
+      },
+      "provider": "BETA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "AF"
+    },
+    {
+      "id": "e5704e54-b3ed-4748-a7b8-a07e15cd1d16",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 4,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 0,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 202.71,
+          "base": 185.96,
+          "quantity": 1,
+          "subtotal": 388.67,
+          "total": 466.404,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 2,
+            "amount": 77.734
+          }
+        },
+        "children": {
+          "tax": 120.95,
+          "base": 90.73,
+          "quantity": 1,
+          "subtotal": 211.68,
+          "total": 254.016,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 2,
+            "amount": 42.336
+          }
+        },
+        "infants": {
+          "tax": 12.4,
+          "base": 966.09,
+          "quantity": 1,
+          "subtotal": 978.49,
+          "total": 1174.188,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 2,
+            "amount": 195.698
+          }
+        }
+      },
+      "provider": "ALPHA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "AA"
+    },
+    {
+      "id": "ead9adf7-348f-4181-82ff-9ce710ac41ff",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 6,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 4,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 6.94,
+          "base": 220.86,
+          "quantity": 1,
+          "subtotal": 227.8,
+          "total": 273.36,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 2,
+            "amount": 45.56
+          }
+        },
+        "children": {
+          "tax": 14.1,
+          "base": 729.49,
+          "quantity": 1,
+          "subtotal": 743.59,
+          "total": 892.308,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 2,
+            "amount": 148.718
+          }
+        },
+        "infants": {
+          "tax": 221.17,
+          "base": 387.62,
+          "quantity": 1,
+          "subtotal": 608.79,
+          "total": 730.548,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 2,
+            "amount": 121.758
+          }
+        }
+      },
+      "provider": "ALPHA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "AA"
+    },
+    {
+      "id": "08a4c101-53ec-4e49-b8d2-4ab519073c06",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 6,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 8,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 26.47,
+          "base": 500.57,
+          "quantity": 1,
+          "subtotal": 527.04,
+          "total": 632.448,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 2,
+            "amount": 105.408
+          }
+        },
+        "children": {
+          "tax": 109.84,
+          "base": 723.86,
+          "quantity": 1,
+          "subtotal": 833.7,
+          "total": 1000.44,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 2,
+            "amount": 166.74
+          }
+        },
+        "infants": {
+          "tax": 195.94,
+          "base": 167.18,
+          "quantity": 1,
+          "subtotal": 363.12,
+          "total": 435.744,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 2,
+            "amount": 72.624
+          }
+        }
+      },
+      "provider": "ALPHA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "AA"
+    },
+    {
+      "id": "112f4870-dc63-4e7a-9c90-a95e513b7724",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 7,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 7,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 68.51,
+          "base": 368.33,
+          "quantity": 1,
+          "subtotal": 436.84,
+          "total": 655.26,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 5,
+            "amount": 218.42
+          }
+        },
+        "children": {
+          "tax": 194.59,
+          "base": 323.32,
+          "quantity": 1,
+          "subtotal": 517.91,
+          "total": 776.865,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 5,
+            "amount": 258.955
+          }
+        },
+        "infants": {
+          "tax": 185.57,
+          "base": 343.44,
+          "quantity": 1,
+          "subtotal": 529.01,
+          "total": 793.515,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 5,
+            "amount": 264.505
+          }
+        }
+      },
+      "provider": "BETA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "AR"
+    },
+    {
+      "id": "1df959da-b2b9-41c6-a480-8c1d8a9a261f",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 2,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 7,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 14.21,
+          "base": 406.1,
+          "quantity": 1,
+          "subtotal": 420.31,
+          "total": 588.434,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 4,
+            "amount": 168.124
+          }
+        },
+        "children": {
+          "tax": 190.46,
+          "base": 113.31,
+          "quantity": 1,
+          "subtotal": 303.77,
+          "total": 425.278,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 4,
+            "amount": 121.508
+          }
+        },
+        "infants": {
+          "tax": 228.66,
+          "base": 684.63,
+          "quantity": 1,
+          "subtotal": 913.29,
+          "total": 1278.606,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 4,
+            "amount": 365.316
+          }
+        }
+      },
+      "provider": "ALPHA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "DL"
+    },
+    {
+      "id": "f15fd8d0-c660-425d-ba64-5992de580618",
+      "segments": [
+        {
+          "legs": [
+            {
+              "origin": "BUE",
+              "destination": "MIA",
+              "departureDate": "2022-11-29",
+              "departureTime": "06:00",
+              "arrivalDate": "2022-11-29",
+              "arrivalTime": "12:00",
+              "number": 6,
+              "flightDuration": "08:00"
+            }
+          ],
+          "flightDuration": "08:00"
+        },
+        {
+          "legs": [
+            {
+              "origin": "MIA",
+              "destination": "BUE",
+              "departureDate": "2022-12-03",
+              "departureTime": "12:00",
+              "arrivalDate": "2022-12-03",
+              "arrivalTime": "18:00",
+              "number": 3,
+              "flightDuration": "04:00"
+            }
+          ],
+          "flightDuration": "04:00"
+        }
+      ],
+      "priceInfo": {
+        "adults": {
+          "tax": 105.67,
+          "base": 126.37,
+          "quantity": 1,
+          "subtotal": 232.04,
+          "total": 324.856,
+          "type": "ADULT",
+          "markup": {
+            "percentage": 4,
+            "amount": 92.816
+          }
+        },
+        "children": {
+          "tax": 151.07,
+          "base": 886.81,
+          "quantity": 1,
+          "subtotal": 1037.88,
+          "total": 1453.032,
+          "type": "CHILD",
+          "markup": {
+            "percentage": 4,
+            "amount": 415.152
+          }
+        },
+        "infants": {
+          "tax": 51.29,
+          "base": 399.18,
+          "quantity": 1,
+          "subtotal": 450.47,
+          "total": 630.658,
+          "type": "INFANT",
+          "markup": {
+            "percentage": 4,
+            "amount": 180.188
+          }
+        }
+      },
+      "provider": "ALPHA",
+      "flightType": "ROUND_TRIP",
+      "carrier": "DL"
+    }
+  ]
+}
