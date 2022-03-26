@@ -24,7 +24,7 @@ services:
      - 4070:4070
     restart: always
     links:
-      - api-clusters-db 
+      - api-clusters-db
 
   api-clusters-db:
     container_name: api-clusters-db
@@ -80,3 +80,9 @@ services:
     container_name: api-clusters-remote-cache
     ports:
       - 5079:6379
+
+  zookeeper:
+    build: ./zookeeper
+    container_name: zookeeper
+    ports:
+      - 2181:2181
