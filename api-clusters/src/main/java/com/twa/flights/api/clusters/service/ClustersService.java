@@ -51,6 +51,7 @@ public class ClustersService {
                 response = availabilityFromProviders(request);
             }
 
+            // Limit the size
             response.setItineraries(response.getItineraries().stream().limit(request.getAmount()).collect(Collectors.toList()));
         } else { // Pagination old search
             response = availabilityFromDatabase(request);
