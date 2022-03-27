@@ -1,11 +1,9 @@
 package com.twa.flights.api.clusters.configuration;
 
 import org.apache.curator.framework.CuratorFramework;
-import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PreDestroy;
 
-@Configuration
 public class ZooKeeperCuratorConfiguration {
 
     private final CuratorFramework client;

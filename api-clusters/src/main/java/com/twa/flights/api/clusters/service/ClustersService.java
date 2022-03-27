@@ -22,19 +22,22 @@ import com.twa.flights.common.dto.itinerary.ItineraryDTO;
 public class ClustersService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClustersService.class);
+    private static final String BARRIER_PATH = "/barrier/";
 
     private final ItinerariesSearchService itinerariesSearchService;
     private final PricingService pricingService;
     private final ClustersRepository repository;
     private final FlightIdGeneratorHelper flightIdGeneratorHelper;
+    private final ZookeeperService zookeeperService;
 
     @Autowired
     public ClustersService(ItinerariesSearchService itinerariesSearchService, PricingService pricingService,
-                           ClustersRepository repository, FlightIdGeneratorHelper flightIdGeneratorHelper) {
+                           ClustersRepository repository, FlightIdGeneratorHelper flightIdGeneratorHelper, ZookeeperService zookeeperService) {
         this.itinerariesSearchService = itinerariesSearchService;
         this.pricingService = pricingService;
         this.repository = repository;
         this.flightIdGeneratorHelper = flightIdGeneratorHelper;
+        this.zookeeperService = zookeeperService;
     }
 
     public ClusterSearchDTO availability(ClustersAvailabilityRequestDTO request) {
@@ -48,7 +51,7 @@ public class ClustersService {
 
             // If the query was not previously executed by other thread the results will be retrieved from provider services
             if (response == null) {
-                response = availabilityFromProviders(request);
+                response = availabilityFromBarrierOrProvider(request);
             }
 
             // Limit the size
@@ -94,6 +97,34 @@ public class ClustersService {
         response.setItineraries(
                 itineraries.stream().skip(skip).limit(request.getAmount()).collect(Collectors.toList()));
         return response;
+    }
+
+    private ClusterSearchDTO availabilityFromBarrierOrProvider(ClustersAvailabilityRequestDTO request) {
+        ClusterSearchDTO response = null;
+        var barrierName = buildBarrierPath(request);
+
+        if (isBarrierCreated(barrierName)) {
+            zookeeperService.waitOnBarrier(barrierName);
+            response = repository.get(flightIdGeneratorHelper.generate(request));
+        } else {
+            response = availabilityFromProviders(request);
+        }
+
+        return response;
+    }
+
+    private String buildBarrierPath(ClustersAvailabilityRequestDTO request) {
+        return BARRIER_PATH + flightIdGeneratorHelper.generate(request);
+    }
+
+    private synchronized boolean isBarrierCreated(String barrierName) {
+        var created = true;
+
+        if (!zookeeperService.checkIfBarrierExists(barrierName)) {
+            created = zookeeperService.createBarrier(barrierName);
+        }
+
+        return created;
     }
 
 }
