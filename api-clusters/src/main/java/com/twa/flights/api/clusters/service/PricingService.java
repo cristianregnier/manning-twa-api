@@ -1,9 +1,11 @@
 package com.twa.flights.api.clusters.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.twa.flights.common.dto.itinerary.MarkupDTO;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +29,7 @@ public class PricingService {
         this.pricingConnector = pricingConnector;
     }
 
-    @CircuitBreaker(name = "priceItineraries")
+    @CircuitBreaker(name = "priceItineraries", fallbackMethod = "fallbackPriceItineraries")
     public List<ItineraryDTO> priceItineraries(List<ItineraryDTO> itineraries) {
         LOGGER.debug("Pricing itineraries");
 
@@ -60,5 +62,10 @@ public class PricingService {
             priceInfo.getInfants().setMarkup(updatedPriceInfo.getInfants().getMarkup());
             priceInfo.getInfants().setTotal(updatedPriceInfo.getInfants().getTotal());
         }
+    }
+
+    @SuppressWarnings({"unused"})
+    private MarkupDTO fallbackPriceItineraries(List<ItineraryDTO> itineraries, RuntimeException exception) {
+        return new MarkupDTO(BigDecimal.ZERO, BigDecimal.ZERO);
     }
 }
