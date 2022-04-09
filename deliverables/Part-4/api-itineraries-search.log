@@ -1,0 +1,340 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2022-04-09 12:58:45.341  INFO 1 --- [           main] c.t.flights.api.itineraries.search.App   : Starting App using Java 12-ea on 44182fd41b0d with PID 1 (/application/api-itineraries-search.jar started by root in /)
+2022-04-09 12:58:45.398  INFO 1 --- [           main] c.t.flights.api.itineraries.search.App   : The following profiles are active: default
+2022-04-09 12:59:02.974  INFO 1 --- [           main] org.eclipse.jetty.util.log               : Logging initialized @32829ms to org.eclipse.jetty.util.log.Slf4jLog
+2022-04-09 12:59:04.369  INFO 1 --- [           main] o.s.b.w.e.j.JettyServletWebServerFactory : Server initialized with port: 7070
+2022-04-09 12:59:04.421  INFO 1 --- [           main] org.eclipse.jetty.server.Server          : jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 12-ea+29
+2022-04-09 12:59:04.626  INFO 1 --- [           main] o.e.j.s.h.ContextHandler.application     : Initializing Spring embedded WebApplicationContext
+2022-04-09 12:59:04.643  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 18293 ms
+2022-04-09 12:59:06.628  INFO 1 --- [           main] org.eclipse.jetty.server.session         : DefaultSessionIdManager workerName=node0
+2022-04-09 12:59:06.634  INFO 1 --- [           main] org.eclipse.jetty.server.session         : No SessionScavenger set, using defaults
+2022-04-09 12:59:06.646  INFO 1 --- [           main] org.eclipse.jetty.server.session         : node0 Scavenging every 600000ms
+2022-04-09 12:59:06.756  INFO 1 --- [           main] o.e.jetty.server.handler.ContextHandler  : Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@54227100{application,/api/flights/itineraries-search,[file:///tmp/jetty-docbase.7070.14450157698112664336/, jar:file:/application/api-itineraries-search.jar!/BOOT-INF/lib/swagger-ui-3.47.1.jar!/META-INF/resources],AVAILABLE}
+2022-04-09 12:59:06.761  INFO 1 --- [           main] org.eclipse.jetty.server.Server          : Started @36618ms
+2022-04-09 12:59:11.364  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-09 12:59:20.171  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path ''
+2022-04-09 12:59:20.478  INFO 1 --- [           main] o.e.j.s.h.ContextHandler.application     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-09 12:59:20.487  INFO 1 --- [           main] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-09 12:59:20.514  INFO 1 --- [           main] o.s.web.servlet.DispatcherServlet        : Completed initialization in 27 ms
+2022-04-09 12:59:20.623  INFO 1 --- [           main] o.e.jetty.server.AbstractConnector       : Started ServerConnector@74960bfa{HTTP/1.1, (http/1.1)}{0.0.0.0:7070}
+2022-04-09 12:59:20.627  INFO 1 --- [           main] o.s.b.web.embedded.jetty.JettyWebServer  : Jetty started on port(s) 7070 (http/1.1) with context path '/api/flights/itineraries-search'
+2022-04-09 12:59:20.752  INFO 1 --- [           main] c.t.flights.api.itineraries.search.App   : Started App in 41.395 seconds (JVM running for 50.609)
+2022-04-09 13:01:17.340 ERROR 1 --- [or-http-epoll-6] c.t.f.a.i.s.c.ProviderAlphaConnector     : Error while calling endpoint /api/flights/provider/alpha/itineraries with status code 500 INTERNAL_SERVER_ERROR
+2022-04-09 13:01:17.464 ERROR 1 --- [pool-1-thread-1] c.t.f.a.i.s.s.ItinerariesSearchService   : Error while calling catalog endpoint
+
+com.twa.flights.api.itineraries.search.exception.TWAException: Error while calling catalog endpoint
+	at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.lambda$availability$2(ProviderAlphaConnector.java:70) ~[classes!/:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ 500 from GET api-provider-alpha:8070/api/flights/provider/alpha/itineraries?adults=1&children=1&infants=1&amount=10&departure=2022-11-29,2022-12-03&from=BUE,MIA&to=MIA,BUE [DefaultWebClient]
+Stack trace:
+		at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.lambda$availability$2(ProviderAlphaConnector.java:70) ~[classes!/:na]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec$StatusHandler.apply(DefaultWebClient.java:693) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.applyStatusHandlers(DefaultWebClient.java:652) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.handleBodyFlux(DefaultWebClient.java:627) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$toEntityList$8(DefaultWebClient.java:583) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:125) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:73) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onNext(MonoFlatMap.java:249) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:151) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:127) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:295) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:159) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:259) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:389) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:396) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:452) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:664) ~[reactor-netty-http-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:94) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:383) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.http.HttpClientCodec$Decoder.channelInactive(HttpClientCodec.java:311) ~[netty-codec-http-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelInactive(CombinedChannelDuplexHandler.java:221) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:819) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:384) ~[netty-transport-native-epoll-4.1.58.Final-linux-x86_64.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1703) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.availability(ProviderAlphaConnector.java:71) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.facade.ProviderAlphaFacade.availability(ProviderAlphaFacade.java:29) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.service.ItinerariesSearchService.lambda$makeProviderCalls$0(ItinerariesSearchService.java:60) ~[classes!/:na]
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+
+2022-04-09 13:02:32.061 ERROR 1 --- [or-http-epoll-4] c.t.f.a.i.s.c.ProviderAlphaConnector     : Error while calling endpoint /api/flights/provider/alpha/itineraries with status code 500 INTERNAL_SERVER_ERROR
+2022-04-09 13:02:32.068 ERROR 1 --- [pool-1-thread-3] c.t.f.a.i.s.s.ItinerariesSearchService   : Error while calling catalog endpoint
+
+com.twa.flights.api.itineraries.search.exception.TWAException: Error while calling catalog endpoint
+	at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.lambda$availability$2(ProviderAlphaConnector.java:70) ~[classes!/:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ 500 from GET api-provider-alpha:8070/api/flights/provider/alpha/itineraries?adults=1&children=1&infants=1&amount=10&departure=2022-11-29,2022-12-04&from=BUE,MIA&to=MIA,BUE [DefaultWebClient]
+Stack trace:
+		at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.lambda$availability$2(ProviderAlphaConnector.java:70) ~[classes!/:na]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec$StatusHandler.apply(DefaultWebClient.java:693) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.applyStatusHandlers(DefaultWebClient.java:652) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.handleBodyFlux(DefaultWebClient.java:627) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$toEntityList$8(DefaultWebClient.java:583) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:125) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:73) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onNext(MonoFlatMap.java:249) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:151) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:127) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:295) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:159) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:259) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:389) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:396) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:452) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:664) ~[reactor-netty-http-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:94) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:383) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.http.HttpClientCodec$Decoder.channelInactive(HttpClientCodec.java:311) ~[netty-codec-http-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelInactive(CombinedChannelDuplexHandler.java:221) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:819) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:384) ~[netty-transport-native-epoll-4.1.58.Final-linux-x86_64.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1703) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.availability(ProviderAlphaConnector.java:71) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.facade.ProviderAlphaFacade.availability(ProviderAlphaFacade.java:29) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.service.ItinerariesSearchService.lambda$makeProviderCalls$0(ItinerariesSearchService.java:60) ~[classes!/:na]
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+
+2022-04-09 13:02:39.024 ERROR 1 --- [or-http-epoll-4] c.t.f.a.i.s.c.ProviderAlphaConnector     : Error while calling endpoint /api/flights/provider/alpha/itineraries with status code 500 INTERNAL_SERVER_ERROR
+2022-04-09 13:02:39.049 ERROR 1 --- [pool-1-thread-5] c.t.f.a.i.s.s.ItinerariesSearchService   : Error while calling catalog endpoint
+
+com.twa.flights.api.itineraries.search.exception.TWAException: Error while calling catalog endpoint
+	at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.lambda$availability$2(ProviderAlphaConnector.java:70) ~[classes!/:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ 500 from GET api-provider-alpha:8070/api/flights/provider/alpha/itineraries?adults=1&children=1&infants=1&amount=10&departure=2022-11-29,2022-12-05&from=BUE,MIA&to=MIA,BUE [DefaultWebClient]
+Stack trace:
+		at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.lambda$availability$2(ProviderAlphaConnector.java:70) ~[classes!/:na]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec$StatusHandler.apply(DefaultWebClient.java:693) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.applyStatusHandlers(DefaultWebClient.java:652) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.handleBodyFlux(DefaultWebClient.java:627) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$toEntityList$8(DefaultWebClient.java:583) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:125) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:73) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onNext(MonoFlatMap.java:249) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:151) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:127) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:295) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1789) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:159) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:259) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:389) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:396) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:452) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:664) ~[reactor-netty-http-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:94) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:383) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354) ~[netty-codec-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.codec.http.HttpClientCodec$Decoder.channelInactive(HttpClientCodec.java:311) ~[netty-codec-http-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelInactive(CombinedChannelDuplexHandler.java:221) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:819) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:384) ~[netty-transport-native-epoll-4.1.58.Final-linux-x86_64.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1703) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.availability(ProviderAlphaConnector.java:71) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.facade.ProviderAlphaFacade.availability(ProviderAlphaFacade.java:29) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.service.ItinerariesSearchService.lambda$makeProviderCalls$0(ItinerariesSearchService.java:60) ~[classes!/:na]
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+
+2022-04-09 13:02:49.928  WARN 1 --- [or-http-epoll-2] r.netty.http.client.HttpClientConnect    : [id: 0x11ad58d1, L:/172.19.0.4:52552 - R:api-provider-alpha/172.19.0.5:8070] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2022-04-09 13:02:49.939 ERROR 1 --- [pool-1-thread-7] c.t.f.a.i.s.s.ItinerariesSearchService   : nested exception is io.netty.handler.timeout.ReadTimeoutException
+
+org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ Request to GET api-provider-alpha:8070/api/flights/provider/alpha/itineraries?adults=1&children=1&infants=1&amount=10&departure=2022-11-29,2022-12-06&from=BUE,MIA&to=MIA,BUE [DefaultWebClient]
+Stack trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-5.3.3.jar!/:5.3.3]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:70) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4046) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:221) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:221) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:221) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:224) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:273) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:413) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:250) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:491) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:299) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:97) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:189) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:189) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:359) ~[reactor-netty-http-1.0.3.jar!/:1.0.3]
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:631) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:213) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:476) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:230) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:442) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:467) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:127) ~[reactor-netty-core-1.0.3.jar!/:1.0.3]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:302) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:281) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:273) ~[netty-transport-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:504) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:476) ~[netty-handler-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:170) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:384) ~[netty-transport-native-epoll-4.1.58.Final-linux-x86_64.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.58.Final.jar!/:4.1.58.Final]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1703) ~[reactor-core-3.4.2.jar!/:3.4.2]
+		at com.twa.flights.api.itineraries.search.connector.ProviderAlphaConnector.availability(ProviderAlphaConnector.java:71) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.facade.ProviderAlphaFacade.availability(ProviderAlphaFacade.java:29) ~[classes!/:na]
+		at com.twa.flights.api.itineraries.search.service.ItinerariesSearchService.lambda$makeProviderCalls$0(ItinerariesSearchService.java:60) ~[classes!/:na]
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+		at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+Caused by: io.netty.handler.timeout.ReadTimeoutException: null
+
