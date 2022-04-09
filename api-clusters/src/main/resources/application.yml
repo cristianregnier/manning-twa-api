@@ -73,5 +73,6 @@ resilience4j.circuitbreaker:
       waitDurationInOpenState: 10s
       failureRateThreshold: 50
       recordExceptions:
+        - java.lang.RuntimeException
         - io.netty.handler.timeout.ReadTimeoutException
         - com.twa.flights.api.itineraries.search.exception.TWAException
