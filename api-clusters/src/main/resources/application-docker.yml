@@ -75,4 +75,4 @@ resilience4j.circuitbreaker:
       recordExceptions:
         - java.lang.RuntimeException
         - io.netty.handler.timeout.ReadTimeoutException
-        - com.twa.flights.api.itineraries.search.exception.TWAException
+        - com.twa.flights.api.clusters.exception.TWAException
