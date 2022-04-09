@@ -41,7 +41,6 @@
 		<commons-codec.version>1.14</commons-codec.version>
 		<zookeeper.version>3.7.0</zookeeper.version>
 		<curator-recipes.version>5.2.0</curator-recipes.version>
-		<resilience4j.version>1.7.1</resilience4j.version>
 
 		<!-- TWA -->
 		<flights-common-dto.version>1.0.4</flights-common-dto.version>
@@ -117,11 +116,6 @@
 			</exclusions>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
-
 		<!-- General -->
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -190,12 +184,6 @@
 					<artifactId>zookeeper</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-circuitbreaker</artifactId>
-			<version>${resilience4j.version}</version>
 		</dependency>
 
 		<!-- TWA -->
