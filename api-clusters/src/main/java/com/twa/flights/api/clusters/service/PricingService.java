@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class PricingService {
         this.pricingConnector = pricingConnector;
     }
 
+    @CircuitBreaker(name = "priceItineraries")
     public List<ItineraryDTO> priceItineraries(List<ItineraryDTO> itineraries) {
         LOGGER.debug("Pricing itineraries");
 
