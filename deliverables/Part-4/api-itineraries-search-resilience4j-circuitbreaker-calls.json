@@ -1,0 +1,36 @@
+{
+  "name": "resilience4j.circuitbreaker.calls",
+  "description": "Total number of failed calls",
+  "baseUnit": "seconds",
+  "measurements": [
+    {
+      "statistic": "COUNT",
+      "value": 8.0
+    },
+    {
+      "statistic": "TOTAL_TIME",
+      "value": 19.437818696
+    },
+    {
+      "statistic": "MAX",
+      "value": 5.028417731
+    }
+  ],
+  "availableTags": [
+    {
+      "tag": "kind",
+      "values": [
+        "ignored",
+        "failed",
+        "successful"
+      ]
+    },
+    {
+      "tag": "name",
+      "values": [
+        "providerBeta",
+        "providerAlpha"
+      ]
+    }
+  ]
+}
