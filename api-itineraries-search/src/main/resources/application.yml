@@ -72,6 +72,7 @@ resilience4j.circuitbreaker:
 resilience4j.ratelimiter:
   instances:
     providerAlpha:
+      registerHealthIndicator: true
       timeoutDuration: 1000ms
       limitRefreshPeriod: 15s
       limitForPeriod: 2
