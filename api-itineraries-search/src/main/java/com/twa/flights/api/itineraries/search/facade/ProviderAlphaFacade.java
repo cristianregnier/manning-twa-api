@@ -1,5 +1,6 @@
 package com.twa.flights.api.itineraries.search.facade;
 
+import java.util.Collections;
 import java.util.List;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -17,25 +18,29 @@ import com.twa.flights.common.dto.request.AvailabilityRequestDTO;
 @Component
 public class ProviderAlphaFacade implements ProviderFacade {
 
-    static final Logger LOGGER = LoggerFactory.getLogger(ProviderAlphaFacade.class);
+   static final Logger LOGGER = LoggerFactory.getLogger(ProviderAlphaFacade.class);
 
-    ProviderAlphaConnector itinerariesSearchConnector;
+   ProviderAlphaConnector itinerariesSearchConnector;
 
-    @Autowired
-    public ProviderAlphaFacade(ProviderAlphaConnector itinerariesSearchConnector) {
-        this.itinerariesSearchConnector = itinerariesSearchConnector;
-    }
+   @Autowired
+   public ProviderAlphaFacade(ProviderAlphaConnector itinerariesSearchConnector) {
+      this.itinerariesSearchConnector = itinerariesSearchConnector;
+   }
 
-    @CircuitBreaker(name = "providerAlpha")
-    @RateLimiter(name = "providerAlpha")
-    public List<ItineraryDTO> availability(AvailabilityRequestDTO request) {
-        LOGGER.debug("Obtain the information about the flights");
-        return itinerariesSearchConnector.availability(request);
-    }
+   @CircuitBreaker(name = "providerAlpha")
+   @RateLimiter(name = "providerAlpha", fallbackMethod = "fallback")
+   public List<ItineraryDTO> availability(AvailabilityRequestDTO request) {
+      LOGGER.debug("Obtain the information about the flights");
+      return itinerariesSearchConnector.availability(request);
+   }
 
-    @Override
-    public Provider getProvider() {
-        return Provider.ALPHA;
-    }
+   @Override
+   public Provider getProvider() {
+      return Provider.ALPHA;
+   }
 
+   @SuppressWarnings("unsued")
+   private List<ItineraryDTO> fallback(AvailabilityRequestDTO request) {
+      return Collections.emptyList();
+   }
 }
