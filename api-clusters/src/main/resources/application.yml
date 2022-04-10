@@ -76,3 +76,10 @@ resilience4j.circuitbreaker:
         - java.lang.RuntimeException
         - io.netty.handler.timeout.ReadTimeoutException
         - com.twa.flights.api.clusters.exception.TWAException
+
+resilience4j.ratelimiter:
+  instances:
+    priceItineraries:
+      timeoutDuration: 1000ms
+      limitRefreshPeriod: 10s
+      limitForPeriod: 2
