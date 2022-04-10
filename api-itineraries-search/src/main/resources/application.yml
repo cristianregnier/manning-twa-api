@@ -1,6 +1,6 @@
 management:
   health.db.enabled: false
-  endpoints:    
+  endpoints:
     web:
       base-path: /
       exposure:
@@ -18,7 +18,7 @@ jetty:
   threadPool:
     maxThreads: 10
     minThreads: 10
-    
+
 chaos:
   monkey:
     enabled: false
@@ -26,22 +26,45 @@ chaos:
       restController: true
     assaults:
       exceptionsActive: true
-      latencyActive: true   
+      latencyActive: true
       latencyRangeStart: 10
-      latencyRangeEnd: 12000  
-      
+      latencyRangeEnd: 12000
+
 spring:
   profiles:
     active: default
 
-connector:  
+connector:
    provider-alpha:
       host: localhost:8070
       responseTimeout: 5000
       connectionTimeout: 5000
-      readTimeout: 5000         
+      readTimeout: 5000
    provider-beta:
       host: localhost:9070
       responseTimeout: 5000
       connectionTimeout: 5000
-      readTimeout: 5000 
+      readTimeout: 5000
+
+resilience4j.circuitbreaker:
+  instances:
+    providerAlpha:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 5
+      ringBufferSizeInHalfOpenState: 3
+      waitDurationInOpenState: 10s
+      failureRateThreshold: 50
+      recordExceptions:
+        - java.lang.RuntimeException
+        - io.netty.handler.timeout.ReadTimeoutException
+        - com.twa.flights.api.itineraries.search.exception.TWAException
+    providerBeta:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 5
+      ringBufferSizeInHalfOpenState: 3
+      waitDurationInOpenState: 10s
+      failureRateThreshold: 50
+      recordExceptions:
+        - java.lang.RuntimeException
+        - io.netty.handler.timeout.ReadTimeoutException
+        - com.twa.flights.api.itineraries.search.exception.TWAException

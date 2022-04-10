@@ -63,3 +63,16 @@ zookeeper:
   maxRetries: 2
   timeBetweenRetries: 100
   connectionTimeout: 1000
+
+resilience4j.circuitbreaker:
+  instances:
+    priceItineraries:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 5
+      ringBufferSizeInHalfOpenState: 3
+      waitDurationInOpenState: 10s
+      failureRateThreshold: 50
+      recordExceptions:
+        - java.lang.RuntimeException
+        - io.netty.handler.timeout.ReadTimeoutException
+        - com.twa.flights.api.clusters.exception.TWAException
