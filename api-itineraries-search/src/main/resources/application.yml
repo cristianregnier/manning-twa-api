@@ -68,3 +68,11 @@ resilience4j.circuitbreaker:
         - java.lang.RuntimeException
         - io.netty.handler.timeout.ReadTimeoutException
         - com.twa.flights.api.itineraries.search.exception.TWAException
+
+resilience4j.ratelimiter:
+  instances:
+    providerAlpha:
+      registerHealthIndicator: true
+      timeoutDuration: 1000ms
+      limitRefreshPeriod: 15s
+      limitForPeriod: 2
