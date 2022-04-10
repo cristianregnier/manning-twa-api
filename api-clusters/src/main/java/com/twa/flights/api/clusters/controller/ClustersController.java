@@ -1,5 +1,6 @@
 package com.twa.flights.api.clusters.controller;
 
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class ClustersController implements ClustersResources {
     }
 
     @Override
+    @RateLimiter(name = "priceItineraries")
     public ResponseEntity<ClusterSearchDTO> availability(ClustersAvailabilityRequestDTO request) {
         LOGGER.debug("Obtain all the itineraries with price");
         requestValidator.validate(request);
